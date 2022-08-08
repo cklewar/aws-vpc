@@ -4,13 +4,12 @@ This repository consists of Terraform templates to bring up a AWS VPC with subne
 
 ## Usage
 
-- Clone this repo with: `git clone https://github.com/cklewar/aws-vpc`
+- Clone this repo with: `git clone --recurse-submodules https://github.com/cklewar/aws-vpc`
 - Enter repository directory with: `cd aws-vpc`
-- Clone __modules__ repository with: `git clone https://github.com/cklewar/f5-xc-modules`
-- Rename __modules__ repository directory name with: `mv f5-xc-modules modules`
 - Export AWS `access_key` and `aws_secrect_key` environment variables
 - Pick and choose from below examples and add mandatory input data and copy data into file `main.tf.example`
 - Rename file __main.tf.example__ to __main.tf__ with: `rename main.tf.example main.tf`
+- Initialize with: `terraform init`
 - Apply with: `terraform apply -auto-approve` or destroy with: `terraform destroy -auto-approve`
 
 ### Example Output
