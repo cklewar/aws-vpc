@@ -10,6 +10,16 @@ variable "project_suffix" {
   default     = "01"
 }
 
+variable "aws_region" {
+  type    = string
+  default = "us-west-2"
+}
+
+provider "aws" {
+  region = var.aws_region
+  alias  = "default"
+}
+
 module "aws_vpc" {
   source             = "./modules/aws/vpc"
   aws_owner          = "c.klewar@f5.com"
@@ -21,5 +31,7 @@ module "aws_vpc" {
     Name  = format("%s-aws-vpc-%s", var.project_prefix, var.project_suffix)
     Owner = "c.klewar@f5.com"
   }
-
+  providers = {
+    aws = aws.default
+  }
 }
